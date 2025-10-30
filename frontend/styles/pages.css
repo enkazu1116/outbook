@@ -1,0 +1,20 @@
+/*
+  pages.css
+  - ページ固有レイアウト（認証/書籍詳細 など）の補助スタイル
+  - レスポンシブ時の崩れ抑制
+*/
+/* Auth */
+.auth { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
+.auth__card { width: 100%; max-width: 420px; background: var(--color-bg-elev); border:1px solid var(--color-border); border-radius:12px; padding:24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+.auth__title { margin:0 0 16px; font-size:20px; }
+.auth__links { display:flex; justify-content:space-between; margin-top:12px; font-size:14px; }
+
+/* Books detail */
+.book-detail { display:flex; flex-direction: column; gap: 24px; }
+.book-detail__header { display:flex; gap:16px; }
+.book-detail__cover { width: 200px; height: 280px; object-fit: cover; background: radial-gradient(160px 100px at 60% 20%, rgba(124,172,255,0.25), transparent), #0d1128; border:1px solid var(--color-border); border-radius: 12px; }
+.book-detail__meta { flex:1; }
+.book-detail__meta { display:flex; flex-direction: column; gap: 12px; }
+.book-detail__section { margin-top: 8px; }
+
+

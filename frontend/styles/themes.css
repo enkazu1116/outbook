@@ -1,0 +1,47 @@
+/*
+  themes.css
+  - CSS変数でライト/ダークの配色・陰影・境界色を定義
+  - UI全体から参照されるベーストークン（--color-*, --shadow, --radius）
+*/
+:root {
+  --radius: 10px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+}
+
+/* Light: 反転（明るい背景に濃い文字、発光は弱め） */
+.theme-light {
+  --color-text: #0b1a3a;
+  --color-muted: #2f4b7c;
+  --color-bg: #eaf4ff;
+  --color-bg-elev: rgba(255,255,255,0.85);
+  --color-primary: #2b6de0;
+  --color-primary-2: #1ea0ff;
+  --color-accent: #6b46ff;
+  --color-danger: #cc1f2f;
+  --color-success: #0aa77a;
+  --color-border: rgba(9, 12, 28, 0.12);
+  --shadow: 0 8px 24px rgba(25, 35, 80, 0.1);
+  --glow-primary: 0 0 0.5rem rgba(30, 144, 255, 0.22), 0 0 1rem rgba(30, 144, 255, 0.12);
+  --glow-accent: 0 0 0.5rem rgba(107, 70, 255, 0.2), 0 0 1rem rgba(107, 70, 255, 0.1);
+}
+
+/* Dark: 銀河配色（深宇宙＋強めの発光） */
+.theme-dark {
+  --color-text: #e6e9ff;
+  --color-muted: #9aa1c8;
+  --color-bg: #0b0f2a;
+  --color-bg-elev: rgba(13, 17, 40, 0.6);
+  --color-primary: #6c8cff;
+  --color-primary-2: #7ef0ff;
+  --color-accent: #d16bff;
+  --color-danger: #ff5b6c;
+  --color-success: #36e3ac;
+  --color-border: rgba(255,255,255,0.08);
+  --shadow: 0 8px 24px rgba(16, 24, 64, 0.4);
+  --glow-primary: 0 0 0.5rem rgba(124, 172, 255, 0.6), 0 0 1.25rem rgba(124, 172, 255, 0.35);
+  --glow-accent: 0 0 0.5rem rgba(209, 107, 255, 0.55), 0 0 1.25rem rgba(209, 107, 255, 0.3);
+}
+
+

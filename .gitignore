@@ -1,0 +1,54 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Node / Package managers
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+npm-debug.log*
+yarn-error.log*
+
+# Next.js / Build outputs
+.next/
+.next-static/
+.next-turbo/
+.turbo/
+.vercel/
+out/
+dist/
+build/
+
+# Coverage / Reports
+coverage/
+*.lcov
+
+# Env files (keep examples only)
+.env
+.env.*
+!.env.example
+
+# Logs / Temp
+*.log
+logs/
+tmp/
+.cache/
+
+# TS build info
+*.tsbuildinfo
+
+# OS-specific
+desktop.ini
+
+# Project specific paths
+frontend/.next/
+frontend/node_modules/
+frontend/.vercel/
+frontend/out/
+frontend/dist/
+frontend/build/
