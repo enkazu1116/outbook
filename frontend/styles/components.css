@@ -6,6 +6,13 @@
 /* Header */
 .header__logo { font-weight: 700; color: var(--color-primary-2); text-shadow: 0 0 8px rgba(126,240,255,0.5); }
 .header__right { display:flex; gap:12px; align-items:center; }
+/* モバイル対応: 検索バーを非表示にし、メニューボタンを追加 */
+@media (max-width: 767px) {
+  .header { justify-content: space-between; }
+  .header__logo { font-size: 18px; }
+  .header__right input[type="text"] { display: none; }
+  .header__right .button--secondary { min-width: 40px; padding: 8px; }
+}
 
 /* Sidebar */
 .nav { display:flex; flex-direction:column; gap:4px; }
@@ -45,6 +52,20 @@
 /* Dark theme specifics for books */
 .theme-dark .book-card__title { color: #ffffff; }
 .theme-dark .tag { background: rgba(209,107,255,0.18); color:#f2d9ff; border:1px solid rgba(209,107,255,0.35); }
+
+/* Rankings responsive */
+@media (max-width: 767px) {
+  .rankings-list { grid-template-columns: 1fr !important; }
+  .ranking-item a { display: none; }
+}
+
+/* Editor responsive */
+@media (max-width: 767px) {
+  .editor__toolbar { flex-wrap: wrap; }
+  .editor__toolbar button { font-size: 12px; padding: 4px 8px; }
+  .editor__actions { flex-direction: column; }
+  .editor__actions button { width: 100%; }
+}
 
 /* Markdown */
 .md { line-height: 1.8; font-size: 16px; color: #e8ebff; }

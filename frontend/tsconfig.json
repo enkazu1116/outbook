@@ -26,6 +26,9 @@
       ],
       "@/store": [
         "./store/index.ts"
+      ],
+      "@/lib/*": [
+        "./lib/*"
       ]
     },
     "types": [

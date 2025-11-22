@@ -1,0 +1,19 @@
+# Go 開発用イメージ作成
+FROM golang:1.25-alpine AS dev
+
+WORKDIR /app
+
+RUN apk add --no-cache git bash ca-certificates tzdata && \
+    go install github.com/cosmtrek/air@latest
+
+ENV PATH="/root/go/bin:${PATH}"
+
+# 依存関係をできるだけキャッシュ
+COPY go.mod ./
+RUN --mount=type=cache,target=/go/pkg/mod \
+    go mod download
+
+# ソースは docker-compose でマウント
+CMD ["air", "-c", ".air.toml"]
+
+

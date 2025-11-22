@@ -1,0 +1,24 @@
+# Go build artifacts
+**/tmp/
+**/bin/
+**/dist/
+**/vendor/
+**/*.out
+**/*.log
+
+# VCS
+.git
+.gitignore
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+
+# Node, Python (in case)
+node_modules/
+__pycache__/
+
+# Docker
+**/.air.toml
+.env

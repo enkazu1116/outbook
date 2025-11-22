@@ -11,6 +11,7 @@ import StoreProvider from '@/components/providers/StoreProvider';
 export const metadata: Metadata = {
   title: 'OutBook',
   description: 'Learning outputs platform',
+  viewport: 'width=device-width, initial-scale=1',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -203,6 +203,83 @@ export async function GET(){
 
 ---
 
+## 12.5. Backend API連携
+
+### APIクライアントの使用方法
+
+`lib/api.ts` にBackend APIを呼び出すためのクライアントが用意されています。
+
+#### 環境変数の設定
+
+`.env.local` ファイルを作成して、Backend APIのベースURLを設定してください：
+
+```bash
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+```
+
+デフォルトは `http://localhost:8080` です。
+
+#### 基本的な使用方法
+
+```typescript
+import { get, post, userApi, ApiError } from '@/lib/api';
+
+// GETリクエスト
+const data = await get<{ id: number }>('/api/users?id=1');
+
+// POSTリクエスト
+const result = await post<{ message: string }>('/api/users', {
+  email: 'user@example.com',
+  password: 'password123',
+  name: 'User Name'
+});
+
+// ユーザー登録API
+try {
+  const result = await userApi.register('user@example.com', 'password123', 'User Name');
+  console.log(result.message);
+} catch (error) {
+  if (error instanceof ApiError) {
+    console.error('APIエラー:', error.message, error.status);
+  }
+}
+
+// 認証トークン付きリクエスト
+const protectedData = await get<Data>('/api/protected', {
+  token: localStorage.getItem('token') || undefined
+});
+```
+
+#### エラーハンドリング
+
+```typescript
+import { ApiError } from '@/lib/api';
+
+try {
+  const data = await get('/api/endpoint');
+} catch (error) {
+  if (error instanceof ApiError) {
+    console.error('ステータス:', error.status);
+    console.error('メッセージ:', error.message);
+  } else {
+    console.error('ネットワークエラー:', error);
+  }
+}
+```
+
+#### 利用可能な関数
+
+- `get<T>(endpoint, options?)` - GETリクエスト
+- `post<T>(endpoint, body?, options?)` - POSTリクエスト
+- `put<T>(endpoint, body?, options?)` - PUTリクエスト
+- `patch<T>(endpoint, body?, options?)` - PATCHリクエスト
+- `del<T>(endpoint, options?)` - DELETEリクエスト
+- `healthCheck()` - ヘルスチェック
+- `userApi.register(email, password, name)` - ユーザー登録
+- `userApi.getUser(id)` - ユーザー情報取得
+
+---
+
 ## 13. 参考
 - Next.js: https://nextjs.org/
 - App Router: https://nextjs.org/docs/app

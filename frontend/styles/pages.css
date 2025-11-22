@@ -16,5 +16,10 @@
 .book-detail__meta { flex:1; }
 .book-detail__meta { display:flex; flex-direction: column; gap: 12px; }
 .book-detail__section { margin-top: 8px; }
+/* モバイル対応: 書籍詳細を縦並びに */
+@media (max-width: 767px) {
+  .book-detail__header { flex-direction: column; align-items: center; }
+  .book-detail__cover { width: 100%; max-width: 200px; height: auto; }
+}
 
 

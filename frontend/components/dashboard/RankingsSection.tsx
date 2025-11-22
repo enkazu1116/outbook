@@ -31,16 +31,16 @@ export function RankingsSection() {
       {loading && <p>読み込み中...</p>}
       {error && <p className="form__error">{error}</p>}
 
-      <ol style={{ listStyle: 'none', padding: 0, margin: '12px 0 0', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12 }}>
+      <ol style={{ listStyle: 'none', padding: 0, margin: '12px 0 0', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12 }} className="rankings-list">
         {items.map((b) => (
-          <li key={`${source}-${b.rank}`} className="card" style={{ padding: 12, display: 'flex', gap: 12, alignItems: 'center' }}>
+          <li key={`${source}-${b.rank}`} className="card ranking-item" style={{ padding: 12, display: 'flex', gap: 12, alignItems: 'center' }}>
             <div style={{ width: 28, textAlign: 'right', fontWeight: 700 }}>{b.rank}</div>
             <img alt="cover" src={b.cover || '/covers/placeholder.jpg'} style={{ width: 56, height: 80, objectFit: 'cover', borderRadius: 6, background: '#0d1128' }} />
-            <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 600 }}>{b.title}</div>
-              {b.author && <div style={{ color: 'var(--color-muted)', fontSize: 14 }}>{b.author}</div>}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{b.title}</div>
+              {b.author && <div style={{ color: 'var(--color-muted)', fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{b.author}</div>}
             </div>
-            {b.url && <a className="button button--primary" href={b.url} target="_blank" rel="noreferrer">見る</a>}
+            {b.url && <a className="button button--primary" href={b.url} target="_blank" rel="noreferrer" style={{ flexShrink: 0 }}>見る</a>}
           </li>
         ))}
       </ol>
